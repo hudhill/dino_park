@@ -86,7 +86,7 @@ describe('Park', function() {
     park.addDino(dino1);
     park.addDino(dino2);
     park.addDino(dino3);
-    assert.deepStrictEqual(park.dinoDiets(), {'carnivore':2, 'herbivore':1, 'omnivore':0})
+    assert.deepStrictEqual(park.dinoDiets(), {'carnivore':2, 'herbivore':1})
   });
 
 });

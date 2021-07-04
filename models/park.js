@@ -61,14 +61,12 @@ Park.prototype.totalRevenuePerYear = function(){
 };
 
 Park.prototype.dinoDiets = function(){
-  const dinoDiets = {'carnivore': 0, 'herbivore':0, 'omnivore':0};
+  const dinoDiets = {};
   for (const dino of this.collectionOfDinos){
-    if (dino.diet === 'carnivore'){
-      dinoDiets.carnivore ++;
-    } else if (dino.diet === 'herbivore'){
-      dinoDiets.herbivore ++;
-    } else if (dino.diet === 'omnivore'){
-      dinoDiets.omnivore ++;
+    if (dinoDiets[dino.diet]){
+      dinoDiets[dino.diet] ++;
+    } else {
+      dinoDiets[dino.diet] = 1;
     }
   }
   return dinoDiets;
