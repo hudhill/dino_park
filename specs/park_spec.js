@@ -50,7 +50,7 @@ describe('Park', function() {
     park.addDino(dino1);
     park.addDino(dino2);
     park.addDino(dino3);
-    assert.deepStrictEqual(park.dinosOfGivenSpecies('t-rex'), [dino1, dino3]);
+    assert.deepStrictEqual(park.refactoredDinosOfGivenSpecies('t-rex'), [dino1, dino3]);
   });
 
   it('should be able to calculate the total number of visitors per day', function(){
@@ -78,7 +78,7 @@ describe('Park', function() {
     park.addDino(dino1);
     park.addDino(dino2);
     park.addDino(dino3);
-    park.removeDinosBySpecies('t-rex');
+    park.refactoredRemoveDinosBySpecies('t-rex');
     assert.deepStrictEqual(park.collectionOfDinos, [dino2]);
   });
 

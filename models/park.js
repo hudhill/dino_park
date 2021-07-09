@@ -21,8 +21,11 @@ Park.prototype.removeDinosBySpecies = function(species){
     }
   }
   this.collectionOfDinos = dinosOfGivenSpecies
-
-}
+};
+//refactored:
+Park.prototype.refactoredRemoveDinosBySpecies = function(species){
+  this.collectionOfDinos = this.collectionOfDinos.filter(dino => dino.species !== species);
+};
 
 Park.prototype.dinoThatAttractsMostVisitors = function(){
   let dinoWithMost = this.collectionOfDinos[0];
@@ -43,6 +46,10 @@ Park.prototype.dinosOfGivenSpecies = function(species){
   }
   return dinos;
 };
+//refactored:
+Park.prototype.refactoredDinosOfGivenSpecies = function(species){
+  return this.collectionOfDinos.filter(dino => dino.species === species);
+};
 
 Park.prototype.visitorsPerDay = function(){
   let total = 0;
@@ -51,6 +58,12 @@ Park.prototype.visitorsPerDay = function(){
   }
   return total;
 };
+// refactored:
+Park.prototype.refactoredVisitorsPerDay = function(){
+  return this.collectionOfDinos.reduce((acc, dino) => {
+    return acc += dino.guestsAttractedPerDay;
+  }, 0);
+}
 
 Park.prototype.visitorsPerYear = function(){
   return this.visitorsPerDay() * 365.25;
